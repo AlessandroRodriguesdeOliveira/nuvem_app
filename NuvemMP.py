@@ -5,7 +5,8 @@ from tkinter import ttk
 from tkinter import filedialog
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
-
+import mimetypes
+mimetypes.add_type('application/octet-stream', '.bkp')
 
 class NuvemMP:
     def __init__(self):
@@ -46,7 +47,7 @@ class NuvemMP:
         self.escolher_arquivo = tk.filedialog.askopenfilename(title='Escolher Arquivo',
                                                               initialdir='<CAMINHO>',
                                                               filetypes=(
-            ('Text files', '*.txt'), ('All files', '*.*'), ))
+            ('Backup files', '*.bkp'), ('All files', '*.*'), ))
         if self.escolher_arquivo:
             self.entry.delete(0, 'end')
             self.entry.insert(0, self.escolher_arquivo)
